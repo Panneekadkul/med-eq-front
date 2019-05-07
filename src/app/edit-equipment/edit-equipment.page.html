@@ -1,0 +1,100 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+  integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+<ion-header>
+  <ion-toolbar>
+    <div class="img-head">
+      <img class="hide-img" src="../../assets/logo.png" width="10%">&nbsp;ระบบการจัดการอุปกรณ์ทางการแพทย์</div>
+    <ion-buttons slot="start">
+      <ion-menu-button autoHide="false"></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="container-fluid mt-5">
+    <div class="row text-center">
+      <div class="col-12">
+        <h2>แก้ไขข้อมูลการแพทย์</h2>
+      </div>
+    </div>
+    <div class="row mt-2">
+      <div class="col-sm-9 offset-sm-1 col-12">
+        <input type="text" class="form-control" placeholder="ค้นหาชื่ออุปกรณ์การแพทย์" [(ngModel)]="searchText">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-10 offset-1 mt-2">
+        <div class="container-fluid d-none d-sm-block">
+          <div class="row text-center">
+            <div class="col-3 border-col ">
+              รูปภาพ
+            </div>
+            <div class="col-2 border-col">
+              ชื่ออุปกรณ์
+            </div>
+            <div class="col-2 border-col">
+              เลขครุภัณฑ์
+            </div>
+            <div class="col-2 border-col">
+              จำนวน
+            </div>
+            <div class="col-2 border-col"></div>
+          </div>
+
+          <div class="row text-center">
+            <div class="col-3 border-col">
+              <!-- รูปภาพ {{item['borrowId']}} -->
+            </div>
+            <div class="col-2 border-col">
+              <!-- ชื่ออุปกรณ์ -->
+            </div>
+            <div class="col-2 border-col">
+              <input type="text" class="form-control" placeholder="เลขครุภัณฑ์">
+            </div>
+            <div class="col-2 border-col">
+              <input type="text" class="form-control" placeholder="จำนวน">
+            </div>
+            <div class="col-2 border-col">
+              <button type="button" class="btn btn-danger">บันทึก</button>
+            </div>
+          </div>
+          <div class="row text-center">
+            <div class="col-3 border-col">
+              <!-- รูปภาพ {{item['borrowId']}} -->
+            </div>
+            <div class="col-2 border-col">
+              <!-- ชื่ออุปกรณ์ -->
+            </div>
+            <div class="col-2 border-col">
+              <input type="text" class="form-control" placeholder="เลขครุภัณฑ์">
+            </div>
+            <div class="col-2 border-col">
+              <input type="text" class="form-control" placeholder="จำนวน">
+            </div>
+            <div class="col-2 border-col">
+              <button type="button" class="btn btn-danger">บันทึก</button>
+            </div>
+          </div>
+          <div class="row text-center">
+            <div class="col-3 border-col">
+              <!-- รูปภาพ {{item['borrowId']}} -->
+            </div>
+            <div class="col-2 border-col">
+              <!-- ชื่ออุปกรณ์ -->
+            </div>
+            <div class="col-2 border-col">
+              <input type="text" class="form-control" placeholder="เลขครุภัณฑ์">
+            </div>
+            <div class="col-2 border-col">
+              <input type="text" class="form-control" placeholder="จำนวน">
+            </div>
+            <div class="col-2 border-col">
+              <button type="button" class="btn btn-danger">บันทึก</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-content>

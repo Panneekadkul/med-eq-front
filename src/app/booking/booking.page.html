@@ -1,0 +1,55 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+  integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<ion-header>
+  <ion-toolbar>
+    <div class="img-head">
+      <img class="hide-img" src="../../assets/logo.png" width="10%">&nbsp;ระบบการจัดการอุปกรณ์ทางการแพทย์</div>
+    <ion-buttons slot="start">
+      <ion-menu-button autoHide="false"></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="container-fluid mt-5">
+    <div class="row text-center">
+      <div class="col-12">
+        <h2>การจองอุปกรณ์การแพทย์</h2>
+      </div>
+    </div>
+  </div>
+  <div class="container-fluid mt-5">
+    <div class="row">
+      <div class="col-md-6 col-4 text-center">
+        <div><img src="../../assets/interface.png"></div>
+      </div>
+      <div class="col-md-6 col-8">
+        <div class="container-fluid">
+          <div class="row mt-2">
+            <div class="col-12">
+              ชื่ออุปกรณ์
+            </div>
+          </div>
+          <div class="row mt-2">
+            <div class="col-12">
+              {{typeName}}
+            </div>
+          </div>
+          <div class="row mt-2">
+            <div class="col-12">
+              จำนวน &nbsp; <input class="form-control col-3 test" maxlength="2" #bookNum> &nbsp; {{typeNum}}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row mt-2">
+      <div class="col-6 text-md-right text-center">
+        <button class="btn btn-success" (click)="booking(bookNum.value)">บันทึก</button>
+      </div>
+      <div class="col-6 text-md-left text-center">
+        <button class="btn btn-danger" (click)="cancel()">ยกเลิก</button>
+      </div>
+    </div>
+  </div>
+</ion-content>

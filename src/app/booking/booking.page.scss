@@ -1,0 +1,32 @@
+ion-content {
+    --background: #f9c7ef;
+}
+
+ion-toolbar {
+    --background: #f598e2;
+}
+
+.img-head{
+    padding: 10px 0px;
+    @media screen and (max-width : 575px) { 
+        text-align: center;
+    }
+}
+
+.hide-img{
+    @media screen and (max-width : 400px) { 
+        display: none;
+    }
+}
+
+.border-col{
+    border: 1px solid black;
+}
+
+.m-t-10{
+    margin-top: 10px;
+}
+
+.form-control.col-3.test{
+    display: initial;
+}

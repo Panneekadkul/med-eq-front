@@ -1,0 +1,84 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+  integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+<ion-header>
+  <ion-toolbar>
+    <div class="img-head">
+      <img class="hide-img" src="../../assets/logo.png" width="10%">&nbsp;ระบบการจัดการอุปกรณ์ทางการแพทย์</div>
+    <ion-buttons slot="start">
+      <ion-menu-button autoHide="false"></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <div class="container-fluid m-t-10">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>แก้ไขข้อมูลพนักงาน</h3>
+      </div>
+    </div>
+    <div class="row m-t-10">
+      <div class="col-12">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-2 offset-lg-1 col-12 text-lg-right text-center">
+              <label class="col-form-label">รหัสพนักงาน</label>
+            </div>
+            <div class="col-lg-8 col-12">
+              <label class="col-form-label">{{res['empId']}}</label>
+            </div>
+          </div>
+          <div class="row m-t-10">
+            <div class="col-lg-2 offset-lg-1 col-12 text-lg-right text-center">
+              <label class="col-form-label">ชื่อ - นามสกุล</label>
+            </div>
+            <div class="col-lg-8 col-12">
+              <input type="text" class="form-control" #empname placeholder="ชื่อ - นามสกุล" value="{{res['empName']}}">
+            </div>
+          </div>
+          <div class="row m-t-10">
+            <div class="col-lg-2 offset-lg-1 col-12 text-lg-right text-center">
+              <label class="col-form-label">เบอร์โทรศัพท์</label>
+            </div>
+            <div class="col-lg-8 col-12">
+              <input type="text" class="form-control" #empphone placeholder="เบอร์โทรศัพท์" value="{{res['empPhone']}}">
+            </div>
+          </div>
+          <div class="row m-t-10">
+            <div class="col-lg-2 offset-lg-1 col-12 text-lg-right text-center">
+              <label class="col-form-label">ตำแหน่ง</label>
+            </div>
+            <div class="col-lg-8 col-12">
+              <select class="custom-select" #empposition>
+                <option value="">เลือกตำแหน่ง</option>
+                <option *ngFor="let position of positions;let i= index" value="{{position['positionId']}}" [selected]="position['positionId'] == res['positionId']">
+                  {{position['positionName']}}</option>
+              </select>
+            </div>
+          </div>
+          <div class="row m-t-10">
+            <div class="col-lg-2 offset-lg-1 col-12 text-lg-right text-center">
+              <label class="col-form-label">หน่วยงาน</label>
+            </div>
+            <div class="col-lg-8 col-12">
+              <select class="custom-select" #empdepartment>
+                <option value="" selected>เลือกหน่วยงาน</option>
+                <option *ngFor="let department of departments; let i = index" value="{{department['departmentId']}}" [selected]="department['departmentId'] == res['departmentId']">
+                  {{department['departmentName']}}</option>
+              </select>
+            </div>
+          </div>
+          <div class="row m-t-10 p-b-10">
+            <div class="col-6 text-md-right text-center">
+              <button type="button" class="btn btn-dark width100" (click)="back()">ย้อนกลับ</button>
+            </div>
+            <div class="col-6 text-md-left text-center">
+              <button type="button" class="btn btn-dark width100"
+                (click)="edit(empname.value,empphone.value,empposition.value,empdepartment.value)">แก้ไข</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-content>

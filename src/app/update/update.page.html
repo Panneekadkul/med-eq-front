@@ -1,0 +1,61 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+  integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<ion-header>
+  <ion-toolbar>
+    <div class="img-head">
+      <img class="hide-img" src="../../assets/logo.png" width="10%">&nbsp;ระบบการจัดการอุปกรณ์ทางการแพทย์</div>
+    <ion-buttons slot="start">
+      <ion-menu-button autoHide="false"></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <div class="container-fluid mt-5">
+    <div class="row text-center">
+      <div class="col-12 ">
+        <h2>เพิ่มอุปกรณ์ทางการแพทย์</h2>
+      </div>
+    </div>
+    <div class="row m-t-10">
+      <div class="col-12">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-2 offset-lg-1 col-12 text-lg-right text-center">
+              <label class="col-form-label">เลขครุภัณฑ์</label>
+            </div>
+            <div class="col-lg-8 col-12">
+              <input type="text" class="form-control" #empid placeholder="เลขครุภัณฑ์">
+            </div>
+          </div>
+          <div class="row m-t-10">
+            <div class="col-lg-2 offset-lg-1 col-12 text-lg-right text-center">
+              <label class="col-form-label">ชื่ออุปกรณ์</label>
+            </div>
+            <div class="col-lg-8 col-12">
+              <input type="password" class="form-control" #emppass placeholder="ชื่ออุปกรณ์">
+            </div>
+          </div>
+          <div class="row m-t-10">
+            <div class="col-lg-2 offset-lg-1 col-12 text-lg-right text-center">
+              <label class="col-form-label">จำนวนอุปกรณ์</label>
+            </div>
+            <div class="col-lg-8 col-12">
+              <input type="text" class="form-control" #empname placeholder="จำนวนอุปกรณ์">
+            </div>
+            </div>
+        </div>
+      </div>
+    </div>
+    <div class="row m-t-10">
+      <div class="col-6 text-md-right text-center">
+        <button type="button" class="btn btn-success width100" (click)="back()">บันทึกข้อมูล</button>
+      </div>
+      <div class="col-6 text-md-left text-center">
+        <button type="button" class="btn btn-success width100"
+          (click)="register(empid.value,empname.value,empcid.value,empphone.value,empposition.value,empdepartment.value,emppass.value)">ย้อนกลับ</button>
+      </div>
+    </div>
+  </div>
+
+
+</ion-content>

@@ -1,0 +1,106 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+  integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<ion-header>
+  <ion-toolbar>
+    <div class="img-head">
+      <img class="hide-img" src="../../assets/logo.png" width="10%">&nbsp;ระบบการจัดการอุปกรณ์ทางการแพทย์</div>
+    <ion-buttons slot="start">
+      <ion-menu-button autoHide="false"></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="container-fluid mt-5">
+    <div class="row text-center">
+      <div class="col-12">
+        <h2>การคืนอุปกรณ์ทางการแพทย์</h2>
+      </div>
+    </div>
+    <div class="row mt-2">
+      <div class="col-sm-10 offset-sm-1 col-12">
+        <input type="text" class="form-control" placeholder="ค้นหารหัสการยืม" [(ngModel)]="searchText">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-10 offset-1 mt-2">
+        <div class="container-fluid d-none d-sm-block">
+          <div class="row text-center">
+            <div class="col-2 border-col ">
+              รหัสการยืม
+            </div>
+            <div class="col-2 border-col">
+              ชื่อ
+            </div>
+            <div class="col-2 border-col">
+              จำนวน
+            </div>
+            <div class="col-2 border-col">
+              วันที่ยืม
+            </div>
+            <div class="col-2 border-col">
+              วันที่คืน
+            </div>
+            <div class="col-2 border-col"></div>
+          </div>
+
+          <div class="row text-center" *ngFor="let item of items | search2: searchText; let i=index;">
+            <div class="col-2 border-col">
+              {{item['borrowId']}}
+            </div>
+            <div class="col-2 border-col">
+              {{item['typeName']}}
+            </div>
+            <div class="col-2 border-col">
+              {{item['borNum']}}
+            </div>
+            <div class="col-2 border-col">
+              {{item['borrowDate']}}
+            </div>
+            <div class="col-2 border-col">
+              {{item['returnDate']}}
+            </div>
+            <div class="col-2 border-col">
+              <button type="button" class="btn btn-danger"
+                (click)="action(item['borrowId'])">คืน</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="container-fluid d-block d-sm-none border-col"
+          *ngFor="let item of items | search2: searchText; let i=index;">
+          <div class="row text-center">
+            <div class="col-12">
+              {{item['borrowId']}}
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12">
+              ชื่ออุปกรณ์ : {{item['typeName']}}
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12">
+              จำนวน : {{item['borNum']}} {{item['typeNum']}}
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12">
+              วันที่ยืม : {{item['borrowDate']}}
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12">
+              วันที่คืน : {{item['returnDate']}}
+            </div>
+          </div>
+          <div class="row text-center">
+            <div class="col-12">
+              <button type="button" class="btn btn-danger" (click)="action(item['borrowId'])">คืน</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-content>

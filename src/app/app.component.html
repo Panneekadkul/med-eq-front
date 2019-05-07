@@ -1,0 +1,47 @@
+<ion-app>
+  <ion-menu contentId="content1" side="start">
+    <ion-header style="background-color: #f598e2">
+      <ion-toolbar>
+        <ion-title>เมนู</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content style="background: #f9c7ef">
+      <div class="container">
+        <div class="row my-1">
+          <div class="col-12">{{name}}</div>
+        </div>
+        <div class="row my-1">
+          <div class="col-12">{{position}}</div>
+        </div>
+        <div class="row my-1">
+          <div class="col-12"><a href="/main">หน้าแรก</a></div>
+        </div>
+        <div class="row my-1" *ngIf="role=='00'">
+          <div class="col-12"><a>หน้าคืน</a></div>
+        </div>
+        <div class="row my-1" *ngIf="role=='99'">
+          <div class="col-12"><a>หน้า</a></div>
+        </div>
+        <div class="row my-1" *ngIf="role=='99'">
+          <div class="col-12"><a>หน้าคืน</a></div>
+        </div>
+        <div class="row my-1" *ngIf="role=='99'">
+          <div class="col-12"><a>หน้าคืน</a></div>
+        </div>
+        <div class="row my-1" *ngIf="role=='99'">
+          <div class="col-12"><a>หน้าออกรายงาน</a></div>
+        </div>
+        <div class="row my-1" *ngIf="role != '99'">
+          <div class="col-12"><a href="/edit-profile">แก้ไขข้อมูลผู้ใช้</a></div>
+        </div>
+        <div class="row my-1" *ngIf="role != '99'">
+          <div class="col-12"><a href="/search-booking">ค้นหาจอง</a></div>
+        </div>
+        <div class="row my-1">
+          <div class="col-12"><a>ออกจากระบบ</a></div>
+        </div>
+      </div>
+    </ion-content>
+  </ion-menu>
+  <ion-router-outlet id="content1" main></ion-router-outlet>
+</ion-app>
