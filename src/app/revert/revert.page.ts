@@ -51,7 +51,7 @@ export class RevertPage implements OnInit {
 
   action(id) {
     console.log(id);
-     alert('ºÑ¹·Ö¡àÃÕÂºÃéÍÂ¤èÐ');
+     alert('บันทึกเรียบร้อยแล้ว');
      location.reload(id);
   }
 }
