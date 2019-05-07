@@ -31,27 +31,35 @@ export class RevertPage implements OnInit {
     });
     loading.present();
     this.request.header = '';
-    this.request.body = {'borrowId': sessionStorage.getItem('username')};
-    console.log("borrowId req = ", this.request);
+    this.request.body = {};
     this.http.post(this.url.url + "getrevert", this.request)
       .subscribe(
         res => {
           console.log("res", res);
-          let byteCharacters = atob(res['src']);
-
-          let byteNumbers = new Array(byteCharacters.length);
-          for (var i = 0; i < byteCharacters.length; i++) {
-            byteNumbers[i] = byteCharacters.charCodeAt(i);
-          }
           this.items = res;
           loading.dismiss();
         }
       );
   }
 
-  action(id) {
-    console.log(id);
-     alert('บันทึกเรียบร้อยแล้ว');
-     location.reload(id);
+  async action(id) {
+    console.log("id = ", id);
+    let loading = await this.loadingController.create({
+      message: 'loading....',
+      spinner: 'circles'
+    });
+    loading.present();
+    this.request.header = '';
+    this.request.body = { "borrowId": id};
+    console.log("borNum req = ", this.request);
+    this.http.post(this.url.url + 'saverevert', this.request)
+      .subscribe(
+        res => {
+          console.log(res);
+          loading.dismiss();
+          alert('บันทึกเรียบร้อยแล้ว');
+          location.reload();
+        }
+      );
   }
 }

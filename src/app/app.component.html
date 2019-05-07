@@ -16,17 +16,14 @@
         <div class="row my-1">
           <div class="col-12"><a href="/main">หน้าแรก</a></div>
         </div>
-        <div class="row my-1" *ngIf="role=='00'">
-          <div class="col-12"><a>หน้าคืน</a></div>
+        <div class="row my-1" *ngIf="role=='99'">
+          <div class="col-12"><a>เพิ่มอุปกรณ์</a></div>
         </div>
         <div class="row my-1" *ngIf="role=='99'">
-          <div class="col-12"><a>หน้า</a></div>
+          <div class="col-12"><a>แก้ไขอุปกรณ์</a></div>
         </div>
         <div class="row my-1" *ngIf="role=='99'">
-          <div class="col-12"><a>หน้าคืน</a></div>
-        </div>
-        <div class="row my-1" *ngIf="role=='99'">
-          <div class="col-12"><a>หน้าคืน</a></div>
+          <div class="col-12"><a href="/revert">หน้าคืน</a></div>
         </div>
         <div class="row my-1" *ngIf="role=='99'">
           <div class="col-12"><a>หน้าออกรายงาน</a></div>
