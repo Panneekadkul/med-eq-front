@@ -14,7 +14,8 @@ const routes: Routes = [
   { path: 'update', loadChildren: './update/update.module#UpdatePageModule' },
   { path: 'edit-profile', loadChildren: './edit-profile/edit-profile.module#EditProfilePageModule' },
   { path: 'search-booking', loadChildren: './search-booking/search-booking.module#SearchBookingPageModule' },
-  { path: 'edit-equipment', loadChildren: './edit-equipment/edit-equipment.module#EditEquipmentPageModule' },
+  { path: 'edit-equipment', loadChildren: './edit-equipment/edit-equipment.module#EditEquipmentPageModule' },  { path: 'mainadmin', loadChildren: './mainadmin/mainadmin.module#MainadminPageModule' },
+
 ];
 
 @NgModule({

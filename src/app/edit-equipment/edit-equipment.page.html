@@ -12,86 +12,46 @@
 </ion-header>
 
 <ion-content>
-  <div class="container-fluid mt-5">
-    <div class="row text-center">
-      <div class="col-12">
-        <h2>แก้ไขข้อมูลการแพทย์</h2>
-      </div>
-    </div>
-    <div class="row mt-2">
-      <div class="col-sm-9 offset-sm-1 col-12">
-        <input type="text" class="form-control" placeholder="ค้นหาชื่ออุปกรณ์การแพทย์" [(ngModel)]="searchText">
-      </div>
-    </div>
+  <div class="container-fluid m-t-10">
     <div class="row">
-      <div class="col-10 offset-1 mt-2">
-        <div class="container-fluid d-none d-sm-block">
-          <div class="row text-center">
-            <div class="col-3 border-col ">
-              รูปภาพ
+      <div class="col-12 text-center">
+        <h3>แก้ไขข้อมูลอุปกรณ์ทางการแพทย์</h3>
+      </div>
+    </div>
+    <div class="row m-t-10">
+      <div class="col-12">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-2 offset-lg-1 col-12 text-lg-right text-center">
+              <label class="col-form-label">ชื่ออุปกรณ์</label>
             </div>
-            <div class="col-2 border-col">
-              ชื่ออุปกรณ์
-            </div>
-            <div class="col-2 border-col">
-              เลขครุภัณฑ์
-            </div>
-            <div class="col-2 border-col">
-              จำนวน
-            </div>
-            <div class="col-2 border-col"></div>
-          </div>
-
-          <div class="row text-center">
-            <div class="col-3 border-col">
-              <!-- รูปภาพ {{item['borrowId']}} -->
-            </div>
-            <div class="col-2 border-col">
-              <!-- ชื่ออุปกรณ์ -->
-            </div>
-            <div class="col-2 border-col">
-              <input type="text" class="form-control" placeholder="เลขครุภัณฑ์">
-            </div>
-            <div class="col-2 border-col">
-              <input type="text" class="form-control" placeholder="จำนวน">
-            </div>
-            <div class="col-2 border-col">
-              <button type="button" class="btn btn-danger">บันทึก</button>
+            <div class="col-lg-8 col-12">
+              <input type="text" class="form-control" #empid placeholder="ชื่ออุปกรณ์">
             </div>
           </div>
-          <div class="row text-center">
-            <div class="col-3 border-col">
-              <!-- รูปภาพ {{item['borrowId']}} -->
+          <div class="row m-t-10">
+            <div class="col-lg-2 offset-lg-1 col-12 text-lg-right text-center">
+              <label class="col-form-label">เลขครุภัฑณ์</label>
             </div>
-            <div class="col-2 border-col">
-              <!-- ชื่ออุปกรณ์ -->
-            </div>
-            <div class="col-2 border-col">
-              <input type="text" class="form-control" placeholder="เลขครุภัณฑ์">
-            </div>
-            <div class="col-2 border-col">
-              <input type="text" class="form-control" placeholder="จำนวน">
-            </div>
-            <div class="col-2 border-col">
-              <button type="button" class="btn btn-danger">บันทึก</button>
+            <div class="col-lg-8 col-12">
+              <input type="password" class="form-control" #emppass placeholder="เลขครุภัฑณ์">
             </div>
           </div>
-          <div class="row text-center">
-            <div class="col-3 border-col">
-              <!-- รูปภาพ {{item['borrowId']}} -->
+          <div class="row m-t-10">
+            <div class="col-lg-2 offset-lg-1 col-12 text-lg-right text-center">
+              <label class="col-form-label">จำนวน</label>
             </div>
-            <div class="col-2 border-col">
-              <!-- ชื่ออุปกรณ์ -->
+            <div class="col-lg-8 col-12">
+              <input type="text" class="form-control" #empname placeholder="จำนวน">
             </div>
-            <div class="col-2 border-col">
-              <input type="text" class="form-control" placeholder="เลขครุภัณฑ์">
-            </div>
-            <div class="col-2 border-col">
-              <input type="text" class="form-control" placeholder="จำนวน">
-            </div>
-            <div class="col-2 border-col">
-              <button type="button" class="btn btn-danger">บันทึก</button>
-            </div>
+          </div>
+        </div>
+        <div class="row m-t-10 p-b-10">
+          <div class="col-6 text-md-right text-center">
+            <button type="button" class="btn btn-success width100" (click)="back()">ย้อนกลับ</button>
+          </div>
+          <div class="col-6 text-md-left text-center">
+            <button type="button" class="btn btn-success width100">บันทึก</button>
           </div>
         </div>
       </div>
