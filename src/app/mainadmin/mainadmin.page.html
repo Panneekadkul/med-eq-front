@@ -1,0 +1,83 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+  integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+<ion-header>
+  <ion-toolbar>
+    <div class="img-head">
+      <img class="hide-img" src="../../assets/logo.png" width="10%">&nbsp;ระบบการจัดการอุปกรณ์ทางการแพทย์</div>
+    <ion-buttons slot="start">
+      <ion-menu-button autoHide="false"></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <div class="container-fluid mt-5">
+    <div class="row text-center">
+      <div class="col-12">
+        <h2>อุปกรณ์ทางการแพทย์</h2>
+      </div>
+    </div>
+    <div class="row mt-2">
+      <div class="col-sm-10 offset-sm-1 col-12">
+        <input type="text" class="form-control" #empphone placeholder="ค้นหาชื่ออุปกรณ์ทางการแพทย์"
+          [(ngModel)]="searchText">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-10 offset-1 mt-2">
+        <div class="container-fluid d-none d-sm-block">
+          <div class="row text-center">
+            <div class="col-3 border-col ">
+              รูปอุปกรณ์
+            </div>
+            <div class="col-3 border-col">
+              ชื่ออุปกรณ์
+            </div>
+            <div class="col-3 border-col">
+              จำนวน
+            </div>
+            <div class="col-3 border-col"></div>
+          </div>
+
+          <div class="row text-center" >
+            <div class="col-3 border-col">
+              <img src="data:image/jpg;base64,{{item['typeFile']}}">
+            </div>
+            <div class="col-3 border-col">
+              {{item['typeName']}}
+            </div>
+            <div class="col-3 border-col">
+              {{item['typeRemain']}}
+            </div>
+            <div class="col-3 border-col">
+              <button type="button" class="btn btn-danger">แก้ไขข้อมูล</button>
+              </div>
+          </div>
+        </div>
+
+        <div class="container-fluid d-block d-sm-none border-col">
+          <div class="row text-center">
+            <div class="col-12">
+              <img src="data:image/jpg;base64,{{item['typeFile']}}">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12">
+              ชื่ออุปกรณ์ : {{item['typeName']}}
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12">
+              เหลือ : {{item['typeRemain']}} {{item['typeNum']}}
+            </div>
+          </div>
+          <div class="row text-center">
+            <div class="col-12">
+              <button type="button" class="btn btn-danger" >แก้ไขข้อมูล</button>              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-content>

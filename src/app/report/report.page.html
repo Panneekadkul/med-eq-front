@@ -30,36 +30,14 @@
           <div class="col-lg-8 col-12">
             <select class="custom-select" #empposition>
               <option value="" selected>เลือกรายงาน</option>
+              <option value="" selected>รายงานสถานะอุปกรณ์</option>
+              <option value="" selected>รายงานหน่วยงานค้างอุปกรณ์</option>
+              <option value="" selected>รายงานจำนวนอุปกรณ์ที่ไม่เพียงพอ</option>
               <option *ngFor="let position of positions;let i= index" value="{{position['positionId']}}">
                 {{position['positionName']}}</option>
             </select>
           </div>
         </div>
-        <div class="row mt-2">
-          <div class="col-lg-2 offset-lg-1 col-12 text-lg-right text-center">
-            <label class="col-form-label">เดือน</label>
-          </div>
-          <div class="col-lg-8 col-12 mt-2">
-            <select class="custom-select" #empdepartment>
-              <option value="" selected>เลือกเดือน</option>
-              <option *ngFor="let department of departments; let i = index" value="{{department['departmentId']}}">
-                {{department['departmentName']}}</option>
-            </select>
-          </div>
-        </div>
-        <div class="row mt-2">
-          <div class="col-lg-2 offset-lg-1 col-12 text-lg-right text-center">
-            <label class="col-form-label">ปี พ.ศ.</label>
-          </div>
-          <div class="col-lg-8 col-12 mt-2">
-            <select class="custom-select" #empdepartment>
-              <option value="" selected>เลือก ปี พ.ศ.</option>
-              <option *ngFor="let department of departments; let i = index" value="{{department['departmentId']}}">
-                {{department['departmentName']}}</option>
-            </select>
-          </div>
-        </div>
-
         <div class="row mt-2 p-b-10">
           <div class="col 9 text-center">
             <button type="button" class="btn btn-dark width100" (click)="back()">ออกรายงาน</button>
