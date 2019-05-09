@@ -46,10 +46,10 @@ export class LoginPage implements OnInit {
             sessionStorage.setItem('username', username);
             sessionStorage.setItem('empName', res['empName']);
             sessionStorage.setItem('positionName', res['positionName']);
-            this.event.publish('role',sessionStorage.getItem('header'));
-            this.event.publish('name',sessionStorage.getItem('empName'));
-            this.event.publish('position',sessionStorage.getItem('positionName'));
-            if(sessionStorage.getItem('header') == '99'){
+            this.event.publish('role', sessionStorage.getItem('header'));
+            this.event.publish('name', sessionStorage.getItem('empName'));
+            this.event.publish('position', sessionStorage.getItem('positionName'));
+            if (sessionStorage.getItem('header') == '99') {
               this.router.navigate(['mainadmin']);
             } else {
               this.router.navigate(['main']);
