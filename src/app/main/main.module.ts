@@ -6,7 +6,6 @@ import { Routes, RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 
 import { MainPage } from './main.page';
-import { SearchPipe } from '../search.pipe';
 import { ShareModule } from '../share/share.module';
 
 const routes: Routes = [
