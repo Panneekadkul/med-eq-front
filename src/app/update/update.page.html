@@ -24,7 +24,7 @@
               <label class="col-form-label">เลขครุภัณฑ์</label>
             </div>
             <div class="col-lg-8 col-12">
-              <input type="text" class="form-control" #empid placeholder="เลขครุภัณฑ์">
+              <input type="text" class="form-control" #typeId placeholder="เลขครุภัณฑ์">
             </div>
           </div>
           <div class="row m-t-10">
@@ -32,7 +32,7 @@
               <label class="col-form-label">ชื่ออุปกรณ์</label>
             </div>
             <div class="col-lg-8 col-12">
-              <input type="password" class="form-control" #emppass placeholder="ชื่ออุปกรณ์">
+              <input type="text" class="form-control" #typeName placeholder="ชื่ออุปกรณ์">
             </div>
           </div>
           <div class="row m-t-10">
@@ -40,19 +40,35 @@
               <label class="col-form-label">จำนวนอุปกรณ์</label>
             </div>
             <div class="col-lg-8 col-12">
-              <input type="text" class="form-control" #empname placeholder="จำนวนอุปกรณ์">
+              <input type="text" class="form-control" #typeTotal placeholder="จำนวนอุปกรณ์">
             </div>
+          </div>
+          <div class="row m-t-10">
+            <div class="col-lg-2 offset-lg-1 col-12 text-lg-right text-center">
+              <label class="col-form-label">หน่วยนับ</label>
             </div>
+            <div class="col-lg-8 col-12">
+              <input type="text" class="form-control" #typeNum placeholder="หน่วยนับ">
+            </div>
+          </div>
+          <div class="row m-t-10">
+            <div class="col-lg-2 offset-lg-1 col-12 text-lg-right text-center">
+              <label class="col-form-label">ระยะเวลาในการยืม</label>
+            </div>
+            <div class="col-lg-8 col-12">
+              <input type="text" class="form-control" #borrowing placeholder="ระยะเวลาในการยืม">
+            </div>
+          </div>
         </div>
       </div>
     </div>
     <div class="row m-t-10">
       <div class="col-6 text-md-right text-center">
-        <button type="button" class="btn btn-success width100" (click)="back()">บันทึกข้อมูล</button>
+        <button type="button" class="btn btn-success width100" (click)="back()">ย้อนกลับ</button>
       </div>
       <div class="col-6 text-md-left text-center">
         <button type="button" class="btn btn-success width100"
-          (click)="register(empid.value,empname.value,empcid.value,empphone.value,empposition.value,empdepartment.value,emppass.value)">ย้อนกลับ</button>
+          (click)="register(typeId.value,typeName.value,typeTotal.value,typeNum.value,borrowing.value)">บันทึก</button>
       </div>
     </div>
   </div>

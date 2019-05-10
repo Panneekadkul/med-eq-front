@@ -48,7 +48,7 @@ export class EditProfilePage implements OnInit {
     this.request.body = { "userName": sessionStorage.getItem('username') }
     await this.http.post(this.url.url + 'getprofile', this.request)
       .subscribe(
-        res => {
+        res => { 
           console.log(res);
           this.res = res;
         }
@@ -72,7 +72,7 @@ export class EditProfilePage implements OnInit {
       loading.dismiss();
   }
 
-  async edit(empname,empphone,empposition,empdepartment){
+  async edit(empname,empphone,empposition,empdepartment,){
     let loading = await this.loadingController.create({
       message: 'loading....',
       spinner: 'circles'
@@ -85,7 +85,9 @@ export class EditProfilePage implements OnInit {
       .subscribe(
         res => {
           console.log('res = ',res);
-          if(res == true){
+          if(res != null){
+            sessionStorage.setItem('empName', res['empName']);
+            sessionStorage.setItem('positionName', empposition);
             this.router.navigate(['main']);
             loading.dismiss();
           }

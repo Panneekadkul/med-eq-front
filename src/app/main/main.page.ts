@@ -30,7 +30,7 @@ export class MainPage implements OnInit {
 
   async ngOnInit() {
     if (sessionStorage.getItem('header') == undefined || sessionStorage.getItem('header') == '' || sessionStorage.getItem('header') == 'null') {
-      alert("กรุณาเข้าสู่ระบบ");
+      
       this.router.navigate(['login']);
       return;
     }

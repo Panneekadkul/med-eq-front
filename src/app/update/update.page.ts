@@ -14,9 +14,8 @@ import { ServiceService } from '../service.service';
 export class UpdatePage implements OnInit {
   private request: Request = new Request();
   private url: Url = new Url();
-  private typeName;
-  private typeNum;
-  private typeId;
+  
+  
 
   constructor(
     private service: ServiceService,
@@ -45,26 +44,34 @@ export class UpdatePage implements OnInit {
       message: 'loading....',
       spinner: 'circles'
     });
+    loading.dismiss();
+  }
+  async register(typeId, typeName, typeTotal, typeNum,borrowing) {
+    let loading = await this.loadingController.create({
+      message: 'loading....',
+      spinner: 'circles'
+    });
+    
+    
     loading.present();
-
-    let typeId = this.service.getData();
-    console.log("type id ", typeId);
     this.request.header = '';
-    this.request.body = { "typeId": typeId };
+    this.request.body = { "typeId": typeId,"typeName":typeName,"typeTotal":typeTotal, "typeNum":typeNum,"borrowing":borrowing};
     console.log("url = ", this.url.url);
-    this.http.post(this.url.url + 'update', this.request)
+    this.http.post(this.url.url + 'savetype', this.request)
       .subscribe(
         res => {
-          console.log(res);
-          this.typeName = res['typeName'];
-          this.typeNum = res['typeNum'];
-          this.typeId = res['typeId']
-          loading.dismiss();
+          if (res == true) {
+            this.back();
+            loading.dismiss();
+          } else {
+            alert("บันทึกไม่สำเร็จ");
+            loading.dismiss();
+          }
         }
       );
   }
 
-  register() {
-    this.router.navigate(['update']);
+  back() {
+    this.router.navigate(['mainadmin']);
   }
 }

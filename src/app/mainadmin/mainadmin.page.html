@@ -49,7 +49,7 @@
               {{item['typeTotal']}}
             </div>
             <div class="col-3 border-col">
-              <button type="button" class="btn btn-danger">แก้ไขข้อมูล</button>
+              <button type="button" class="btn btn-danger" (click)="action(item['typeId'])">แก้ไขข้อมูล</button>
               </div>
           </div>
         </div>
@@ -72,7 +72,8 @@
           </div>
           <div class="row text-center">
             <div class="col-12">
-              <button type="button" class="btn btn-danger" >แก้ไขข้อมูล</button>              
+              <button type="button" class="btn btn-danger" 
+              (click)="action(item['typeId'])">แก้ไขข้อมูล</button>              
             </div>
           </div>
         </div>
