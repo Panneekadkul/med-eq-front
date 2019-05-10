@@ -24,14 +24,17 @@ export class MainPage implements OnInit {
     private event: Events
   ) { }
 
+  ionViewWillEnter(){
+    this.ngOnInit();
+  }
+
   async ngOnInit() {
-    
-    if(sessionStorage.getItem('header') == undefined || sessionStorage.getItem('header') == '' || sessionStorage.getItem('header') == 'null'){
+    if (sessionStorage.getItem('header') == undefined || sessionStorage.getItem('header') == '' || sessionStorage.getItem('header') == 'null') {
       alert("กรุณาเข้าสู่ระบบ");
       this.router.navigate(['login']);
       return;
     }
-    if(sessionStorage.getItem('header') == '99'){
+    if (sessionStorage.getItem('header') == '99') {
       this.router.navigate(['mainadmin']);
       return;
     }

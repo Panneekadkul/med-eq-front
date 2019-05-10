@@ -104,6 +104,7 @@ export class BookingPage implements OnInit {
             document.body.removeChild(link);
           }
           loading.dismiss();
+          this.cancel();
         }
       );
   }
