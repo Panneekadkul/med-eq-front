@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { LoadingController } from '@ionic/angular';
+import { LoadingController, Events } from '@ionic/angular';
 import { HttpClient } from '@angular/common/http';
 import { Url } from '../model/url';
 import { Request } from '../model/request';
@@ -20,10 +20,21 @@ export class SearchBookingPage implements OnInit {
     private loadingController: LoadingController,
     private http: HttpClient,
     private service: ServiceService,
-    private router: Router
+    private router: Router,
+    private event: Events
   ) { }
 
   async ngOnInit() {
+    if(sessionStorage.getItem('header') == undefined || sessionStorage.getItem('header') == '' || sessionStorage.getItem('header') == 'null'){
+      alert("กรุณาเข้าสู่ระบบ");
+      this.router.navigate(['login']);
+    }
+    if(sessionStorage.getItem('header') == '99'){
+      this.router.navigate(['mainadmin']);
+    }
+    this.event.publish('role', sessionStorage.getItem('header'));
+    this.event.publish('name', sessionStorage.getItem('empName'));
+    this.event.publish('position', sessionStorage.getItem('positionName'));
     let loading = await this.loadingController.create({
       message: 'loading....',
       spinner: 'circles'

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ServiceService } from '../service.service';
 import { Url } from '../model/url';
 import { Request } from '../model/request';
-import { LoadingController } from '@ionic/angular';
+import { LoadingController, Events } from '@ionic/angular';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 
@@ -24,12 +24,23 @@ export class BorrowPage implements OnInit {
     private service: ServiceService,
     private loadingController: LoadingController,
     private http: HttpClient,
-    private router: Router
+    private router: Router,
+    private event: Events
   ) {
 
   }
 
   async ngOnInit() {
+    if(sessionStorage.getItem('header') == undefined || sessionStorage.getItem('header') == '' || sessionStorage.getItem('header') == 'null'){
+      alert("กรุณาเข้าสู่ระบบ");
+      this.router.navigate(['login']);
+    }
+    if(sessionStorage.getItem('header') == '99'){
+      this.router.navigate(['mainadmin']);
+    }
+    this.event.publish('role', sessionStorage.getItem('header'));
+    this.event.publish('name', sessionStorage.getItem('empName'));
+    this.event.publish('position', sessionStorage.getItem('positionName'));
     let loading = await this.loadingController.create({
       message: 'loading....',
       spinner: 'circles'
@@ -41,7 +52,7 @@ export class BorrowPage implements OnInit {
     this.request.body = { "typeId": typeId };
     console.log("request = ", this.request);
     console.log("url = ", this.url.url);
-    this.http.post(this.url.url + 'gettype', this.request)
+    await this.http.post(this.url.url + 'gettype', this.request)
       .subscribe(
         res => {
           console.log(res);

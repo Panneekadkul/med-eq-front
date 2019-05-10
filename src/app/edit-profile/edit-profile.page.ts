@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Url } from '../model/url';
 import { Request } from '../model/request';
-import { LoadingController } from '@ionic/angular';
+import { LoadingController, Events } from '@ionic/angular';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 
@@ -22,10 +22,21 @@ export class EditProfilePage implements OnInit {
   constructor(
     private loadingController: LoadingController,
     private http: HttpClient,
-    private router: Router
+    private router: Router,
+    private event: Events
   ) { }
 
   async ngOnInit() {
+    if(sessionStorage.getItem('header') == undefined || sessionStorage.getItem('header') == '' || sessionStorage.getItem('header') == 'null'){
+      alert("กรุณาเข้าสู่ระบบ");
+      this.router.navigate(['login']);
+    }
+    if(sessionStorage.getItem('header') == '99'){
+      this.router.navigate(['mainadmin']);
+    }
+    this.event.publish('role', sessionStorage.getItem('header'));
+    this.event.publish('name', sessionStorage.getItem('empName'));
+    this.event.publish('position', sessionStorage.getItem('positionName'));
     let loading = await this.loadingController.create({
       message: 'loading....',
       spinner: 'circles'
@@ -33,7 +44,7 @@ export class EditProfilePage implements OnInit {
     loading.present();
     this.request.header = "";
     this.request.body = { "userName": sessionStorage.getItem('username') }
-    this.http.post(this.url.url + 'getprofile', this.request)
+    await this.http.post(this.url.url + 'getprofile', this.request)
       .subscribe(
         res => {
           console.log(res);
@@ -41,7 +52,7 @@ export class EditProfilePage implements OnInit {
         }
       );
 
-    this.http.post(this.url.url + 'findAllDepartment', this.request)
+    await this.http.post(this.url.url + 'findAllDepartment', this.request)
       .subscribe(
         res => {
           this.departments = res;
@@ -49,7 +60,7 @@ export class EditProfilePage implements OnInit {
         }
       );
 
-    this.http.post(this.url.url + 'findAllPosition', this.request)
+    await this.http.post(this.url.url + 'findAllPosition', this.request)
       .subscribe(
         res => {
           this.positions = res;
