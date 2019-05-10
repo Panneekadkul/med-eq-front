@@ -19,8 +19,7 @@
     </div>
     <div class="row mt-2">
       <div class="col-sm-10 offset-sm-1 col-12">
-        <input type="text" class="form-control" #empphone placeholder="ค้นหาชื่ออุปกรณ์ทางการแพทย์"
-          [(ngModel)]="searchText">
+        <input type="text" class="form-control" [(ngModel)]="searchText" placeholder="ค้นหาชื่ออุปกรณ์ทางการแพทย์">
       </div>
     </div>
     <div class="row">
@@ -39,7 +38,7 @@
             <div class="col-3 border-col"></div>
           </div>
 
-          <div class="row text-center" >
+          <div class="row text-center" *ngFor="let item of items | search: searchText; let i=index;">
             <div class="col-3 border-col">
               <img src="data:image/jpg;base64,{{item['typeFile']}}">
             </div>
@@ -47,7 +46,7 @@
               {{item['typeName']}}
             </div>
             <div class="col-3 border-col">
-              {{item['typeRemain']}}
+              {{item['typeTotal']}}
             </div>
             <div class="col-3 border-col">
               <button type="button" class="btn btn-danger">แก้ไขข้อมูล</button>
@@ -55,7 +54,7 @@
           </div>
         </div>
 
-        <div class="container-fluid d-block d-sm-none border-col">
+        <div class="container-fluid d-block d-sm-none border-col" *ngFor="let item of items | search: searchText; let i=index;">
           <div class="row text-center">
             <div class="col-12">
               <img src="data:image/jpg;base64,{{item['typeFile']}}">
@@ -68,7 +67,7 @@
           </div>
           <div class="row">
             <div class="col-12">
-              เหลือ : {{item['typeRemain']}} {{item['typeNum']}}
+              เหลือ : {{item['typeTotal']}} {{item['typeNum']}}
             </div>
           </div>
           <div class="row text-center">
