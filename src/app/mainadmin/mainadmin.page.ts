@@ -14,7 +14,7 @@ export class MainadminPage implements OnInit {
   private url: Url = new Url();
   private items;
 
-  constructor( private menu: MenuController,
+  constructor(private menu: MenuController,
     private http: HttpClient,
     private router: Router,
     private service: ServiceService,
@@ -24,12 +24,13 @@ export class MainadminPage implements OnInit {
 
 
   async ngOnInit() {
-    if(sessionStorage.getItem('header') == undefined || sessionStorage.getItem('header') == '' || sessionStorage.getItem('header') == 'null'){
+    if (sessionStorage.getItem('header') == undefined || sessionStorage.getItem('header') == '' || sessionStorage.getItem('header') == 'null') {
       alert("กรุณาเข้าสู่ระบบ");
       this.router.navigate(['login']);
     }
-    if(sessionStorage.getItem('header') != '99'){
+    if (sessionStorage.getItem('header') != '99') {
       this.router.navigate(['main']);
+      return;
     }
     this.event.publish('role', sessionStorage.getItem('header'));
     this.event.publish('name', sessionStorage.getItem('empName'));
@@ -52,6 +53,6 @@ export class MainadminPage implements OnInit {
   action(id) {
     console.log(id);
     this.service.setData(id);
-      this.router.navigate(['edit-equipment']);
+    this.router.navigate(['edit-equipment']);
   }
 }

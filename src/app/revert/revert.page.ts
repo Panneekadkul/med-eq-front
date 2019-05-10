@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { LoadingController } from '@ionic/angular';
+import { LoadingController, Events } from '@ionic/angular';
 import { Request } from '../model/request';
 import { HttpClient } from '@angular/common/http';
 import { Url } from '../model/url'
@@ -21,10 +21,23 @@ export class RevertPage implements OnInit {
     private loadingController: LoadingController,
     private http: HttpClient,
     private service: ServiceService,
-    private router: Router
+    private router: Router,
+    private event: Events
   ) { }
 
   async ngOnInit() {
+    if (sessionStorage.getItem('header') == undefined || sessionStorage.getItem('header') == '' || sessionStorage.getItem('header') == 'null') {
+      alert("กรุณาเข้าสู่ระบบ");
+      this.router.navigate(['login']);
+      return;
+    }
+    if (sessionStorage.getItem('header') != '99') {
+      this.router.navigate(['main']);
+      return;
+    }
+    this.event.publish('role', sessionStorage.getItem('header'));
+    this.event.publish('name', sessionStorage.getItem('empName'));
+    this.event.publish('position', sessionStorage.getItem('positionName'));
     let loading = await this.loadingController.create({
       message: 'loading....',
       spinner: 'circles'
@@ -32,7 +45,7 @@ export class RevertPage implements OnInit {
     loading.present();
     this.request.header = '';
     this.request.body = {};
-    this.http.post(this.url.url + "getrevert", this.request)
+    await this.http.post(this.url.url + "getrevert", this.request)
       .subscribe(
         res => {
           console.log("res", res);
@@ -50,7 +63,7 @@ export class RevertPage implements OnInit {
     });
     loading.present();
     this.request.header = '';
-    this.request.body = { "borrowId": id};
+    this.request.body = { "borrowId": id };
     console.log("borNum req = ", this.request);
     this.http.post(this.url.url + 'saverevert', this.request)
       .subscribe(

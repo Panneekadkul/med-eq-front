@@ -34,9 +34,11 @@ export class BorrowPage implements OnInit {
     if(sessionStorage.getItem('header') == undefined || sessionStorage.getItem('header') == '' || sessionStorage.getItem('header') == 'null'){
       alert("กรุณาเข้าสู่ระบบ");
       this.router.navigate(['login']);
+      return;
     }
     if(sessionStorage.getItem('header') == '99'){
       this.router.navigate(['mainadmin']);
+      return;
     }
     this.event.publish('role', sessionStorage.getItem('header'));
     this.event.publish('name', sessionStorage.getItem('empName'));

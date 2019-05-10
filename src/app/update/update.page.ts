@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Request } from '../model/request';
-import { LoadingController } from '@ionic/angular';
+import { LoadingController, Events } from '@ionic/angular';
 import { HttpClient } from '@angular/common/http';
 import { Url } from '../model/url';
 import { ServiceService } from '../service.service';
@@ -22,19 +22,31 @@ export class UpdatePage implements OnInit {
     private service: ServiceService,
     private http: HttpClient,
     private router: Router,
-    private loadingController: LoadingController
-    
-    ) { 
+    private loadingController: LoadingController,
+    private event: Events
+  ) {
 
-    }
+  }
 
   async ngOnInit() {
+    if (sessionStorage.getItem('header') == undefined || sessionStorage.getItem('header') == '' || sessionStorage.getItem('header') == 'null') {
+      alert("กรุณาเข้าสู่ระบบ");
+      this.router.navigate(['login']);
+      return;
+    }
+    if (sessionStorage.getItem('header') != '99') {
+      this.router.navigate(['main']);
+      return;
+    }
+    this.event.publish('role', sessionStorage.getItem('header'));
+    this.event.publish('name', sessionStorage.getItem('empName'));
+    this.event.publish('position', sessionStorage.getItem('positionName'));
     let loading = await this.loadingController.create({
       message: 'loading....',
       spinner: 'circles'
     });
     loading.present();
-    
+
     let typeId = this.service.getData();
     console.log("type id ", typeId);
     this.request.header = '';
