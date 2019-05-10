@@ -80,11 +80,14 @@ export class EditProfilePage implements OnInit {
     loading.present();
     this.request.header = '';
     this.request.body = {'empId':sessionStorage.getItem('username'),'empName':empname,'empPhone':empphone,'empposition':empposition,'empdepartment':empdepartment};
+    console.log('req = ',this.request);
     this.http.post(this.url.url+'editprofile',this.request)
       .subscribe(
         res => {
-          if(res == 'true'){
+          console.log('res = ',res);
+          if(res == true){
             this.router.navigate(['main']);
+            loading.dismiss();
           }
         }
       );
