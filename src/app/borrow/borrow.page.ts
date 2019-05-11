@@ -80,7 +80,7 @@ export class BorrowPage implements OnInit {
     this.http.post(this.url.url + 'saveborrow', this.request)
       .subscribe(
         res => {
-          console.log(res);
+          console.log(res['src']);
           let byteCharacters = atob(res['src']);
 
           let byteNumbers = new Array(byteCharacters.length);
@@ -109,7 +109,7 @@ export class BorrowPage implements OnInit {
           }
           loading.dismiss();
           this.cancel();
-        }
+          }
       );
   }
 

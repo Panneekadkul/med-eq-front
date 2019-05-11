@@ -77,6 +77,7 @@ export class BookingPage implements OnInit {
       .subscribe(
         res => {
           console.log(res['src']);
+          
           let byteCharacters = atob(res['src']);
 
           let byteNumbers = new Array(byteCharacters.length);
@@ -105,6 +106,8 @@ export class BookingPage implements OnInit {
           }
           loading.dismiss();
           this.cancel();
+
+          
         }
       );
   }
