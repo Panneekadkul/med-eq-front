@@ -57,15 +57,15 @@ export class RevertPage implements OnInit {
 
   }
 
-  async action(id) {
-    console.log("id = ", id);
+  async action(id,borRevert) {
+    
     let loading = await this.loadingController.create({
       message: 'loading....',
       spinner: 'circles'
     });
     loading.present();
     this.request.header = '';
-    this.request.body = { "borrowId": id };
+    this.request.body = { "borrowId": id ,'revertNum' : borRevert};
     console.log("borNum req = ", this.request);
     this.http.post(this.url.url + 'saverevert', this.request)
       .subscribe(

@@ -69,7 +69,7 @@
 
             <div class="col-1 border-col">
               <button type="button" class="btn btn-danger"
-                (click)="action(item['borrowId'])">คืน</button>
+                (click)="action(item['borrowId'],borRevert.value)">คืน</button>
             </div>
           </div>
         </div>
@@ -103,12 +103,12 @@
           </div>
           <div class="row">
             <div class="col-12">
-              <input type="text " class="form-control" #empphone placeholder="จำนวนคืน">  
+              <input type="text " class="form-control" #borRevert placeholder="จำนวนคืน">  
             </div>
           </div>
           <div class="row text-center">
             <div class="col-12">
-              <button type="button" class="btn btn-danger" (click)="action(item['borrowId'])">คืน</button>
+              <button type="button" class="btn btn-danger" (click)="action(item['borrowId'],borRevert.value)">คืน</button>
             </div>
           </div>
         </div>
