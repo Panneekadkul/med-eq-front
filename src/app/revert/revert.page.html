@@ -26,13 +26,13 @@
       <div class="col-10  offset-1 mt-2">
         <div class="container-fluid d-none d-sm-block">
           <div class="row text-center">
-            <div class="col-2  border-col ">
+            <div class="col-1  border-col ">
               รหัสการยืม
             </div>
-            <div class="col-2 border-col">
+            <div class="col-3 border-col">
               ชื่อ
             </div>
-            <div class="col-2 border-col">
+            <div class="col-1 border-col">
               จำนวน
             </div>
             <div class="col-2 border-col">
@@ -41,17 +41,20 @@
             <div class="col-2 border-col">
               วันที่คืน
             </div>
-            <div class="col-2 border-col"></div>
+            <div class="col-2 border-col">
+              จำนวนคืน
+            </div>
+            <div class="col-1 border-col"></div>
           </div>
 
           <div class="row text-center" *ngFor="let item of items | search2: searchText; let i=index;">
-            <div class="col-2 border-col">
+            <div class="col-1 border-col">
               {{item['borrowId']}}
             </div>
-            <div class="col-2 border-col">
+            <div class="col-3 border-col">
               {{item['typeName']}}
             </div>
-            <div class="col-2 border-col">
+            <div class="col-1 border-col">
               {{item['borNum']}}
             </div>
             <div class="col-2 border-col">
@@ -60,7 +63,11 @@
             <div class="col-2 border-col">
               {{item['returnDate']}}
             </div>
-            <div class="col-2 border-col">
+            <div class="col-2 border-col">              
+                <input type="text " class="form-control" #borRevert placeholder="จำนวนคืน">              
+            </div>
+
+            <div class="col-1 border-col">
               <button type="button" class="btn btn-danger"
                 (click)="action(item['borrowId'])">คืน</button>
             </div>
@@ -92,6 +99,11 @@
           <div class="row">
             <div class="col-12">
               วันที่คืน : {{item['returnDate']}}
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12">
+              <input type="text " class="form-control" #empphone placeholder="จำนวนคืน">  
             </div>
           </div>
           <div class="row text-center">

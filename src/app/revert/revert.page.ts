@@ -42,6 +42,7 @@ export class RevertPage implements OnInit {
       message: 'loading....',
       spinner: 'circles'
     });
+
     loading.present();
     this.request.header = '';
     this.request.body = {};
@@ -53,6 +54,7 @@ export class RevertPage implements OnInit {
           loading.dismiss();
         }
       );
+
   }
 
   async action(id) {
